@@ -6,3 +6,5 @@ Estrutura do Repositório
 Os scripts estão organizados em pastas, separadas por linguagem ou tema:
 
 🗂️ Code_Python: Scripts desenvolvidos em Python, abordando exercícios variados e conceitos fundamentais.
+
+🗂️ Docker: Scripts do curso **Docker**.
