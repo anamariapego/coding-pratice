@@ -1,0 +1,42 @@
+# Introdução a linguagem YAML
+
+name: "Thiago"
+year: 32
+
+# Obejtos em YAML
+objects:
+  version: 3.0.2
+  file: "config.yaml"
+
+# Strings - YMAL entende strings com ou sem aspas
+name1: "Maria"
+name2: Camila
+
+# Dados nulos
+value_null: null
+value_null2: ~
+
+# Booleanos
+value_true: true 
+value_true1: On
+
+value_false: false
+value_false1: Off
+
+# Arrays
+array: [1,3,3,3]
+array1:
+  - 1
+  - "string"
+  - 23.5
+  - On
+
+# Dicionários
+
+dict: {
+  name: Thiago,
+  city: "BH",
+  object_internal: {
+    name: string
+  }
+}
