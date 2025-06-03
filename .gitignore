@@ -1,1 +1,9 @@
 env-coding-pratice
+Streamlit/data/
+
+# Ignorar cache do Python
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
