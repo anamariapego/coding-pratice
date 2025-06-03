@@ -2,10 +2,12 @@
 
 Este repositorio foi criado para concentrar exercícios resolvidos, estudos práticos e experimentações com diferentes tecnologias e linguagens de programação.
 
-🎯 Objetivo:
+🎯 **Objetivo**:
+
 Aprimorar habilidades de codificação, reforçar conceitos fundamentais de programação e explorar novas ferramentas por meio de desafios e estudos práticos.
 
-📁 Estrutura do Repositório
+📁 **Estrutura do Repositório**
+
 Os conteúdos estão organizados por tema ou tecnologia, facilitando a navegação:
 
 * 🐍 [Code_Python/](https://github.com/anamariapego/coding-pratice/tree/main/Python)
