@@ -56,12 +56,16 @@ project_streamlit/
 
 - **Análise Exploratória**
   - Visualizações interativas
-  - - Métricas financeiras e comportamentais
+  - Métricas financeiras e comportamentais
 
 - **Recursos Interativos**
   - Filtros por variáveis categóricas ou numéricas
   - Seleção de atributos para visualização
  
 ## 🌐 Demonstração da Aplicação
+
+[🎥 Clique aqui para assistir ao vídeo](./streamlit.mp4)
+
+
 
 
