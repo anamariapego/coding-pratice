@@ -64,7 +64,7 @@ project_streamlit/
  
 ## 🌐 Demonstração da Aplicação
 
-[🎥 Clique aqui para assistir ao vídeo](./streamlit.mp4)
+![Demonstração em execução](./streamlit.gif)
 
 
 
