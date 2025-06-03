@@ -1,39 +1,67 @@
-# Projeto de Análise de Dados com Streamlit
+# 📊 Projeto de Análise de Dados com Streamlit
 
-Este projeto utiliza Streamlit para criar uma aplicação web interativa para análise de dados.
+Este projeto é uma aplicação web interativa desenvolvida com [Streamlit](https://streamlit.io/) para análise e visualização de dados. A aplicação permite aos usuários explorar, analisar e visualizar dados de forma dinâmica e intuitiva.
 
-## Estrutura do Projeto
+## 🎯 Sobre o Projeto
+
+O projeto foi desenvolvido para facilitar a análise exploratória de dados, oferecendo uma interface amigável e interativa. Ele permite que usuários, mesmo sem conhecimento técnico avançado, possam realizar análises complexas através de uma interface web intuitiva.
+
+## 📁 Estrutura do Projeto
 
 ```
 project_streamlit/
-├── app.py                 # Arquivo principal da aplicação
-├── README.md             # Este arquivo
-├── requirements.txt      # Dependências do projeto
-├── data/                 # Diretório para armazenar os datasets
-│   └── dataset.csv      # Dataset principal
-└── infrastructure/       # Diretório com módulos de suporte
-    ├── data_loader.py   # Funções para carregar e tratar dados
-    └── analysis.py      # Funções para análise exploratória
+├── app.py                       # Arquivo principal da aplicação
+├── README.md                    # Documentação
+├── requirements.txt             # Dependências do projeto
+├── infrastructure/              # Diretório com módulos de suporte
+│   ├── __init__.py          
+│   ├── analysis.py              # Funções para análise de visualiação
+│   ├── data_loader_process.py   # Processamento de dados
+│   └── metrics.py               # Métricas e cálculos estatísticos
+└── utils/                       # Utilitários e configurações
+    ├── __init__.py          
+    ├── style.py                 # Configurações de estilo da aplicação
+    └── logger.py                # Configuração de logs
 ```
 
-## Instalação
+## 🚀 Como Executar a Aplicação
 
-1. Clone este repositório
-2. Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
+1. Clone o repositório:
+   ```bash
+   git clone [URL_DO_REPOSITÓRIO]
+   ```
 
-## Executando a Aplicação
+2. Acesse o diretório do projeto:
+   ```bash
+   cd project_streamlit
+   ```
 
-Para executar a aplicação, use o comando:
-```bash
-streamlit run app.py
-```
+3. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Funcionalidades
+4. Execute a aplicação:
+   ```bash
+   streamlit run app.py
+   ```
 
-- Carregamento e tratamento automático de dados
-- Análise exploratória com visualizações interativas
-- Estatísticas descritivas
-- Análise de valores nulos
+📍 Acesse no navegador: [http://localhost:8501](http://localhost:8501)
+
+## ⚙️Funcionalidades Principais
+
+- **Carregamento de Dados**
+  - Carregamento e tratamento automático de dados faltantes
+  - Validação de dados
+
+- **Análise Exploratória**
+  - Visualizações interativas
+  - - Métricas financeiras e comportamentais
+
+- **Recursos Interativos**
+  - Filtros por variáveis categóricas ou numéricas
+  - Seleção de atributos para visualização
+ 
+## 🌐 Demonstração da Aplicação
+
+
