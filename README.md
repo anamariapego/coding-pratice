@@ -1,11 +1,18 @@
 # Coding Pratice
 
-Este repositório contém listas de exercícios e suas soluções, focados no aprendizado e na prática de programação. O objetivo é reforçar conceitos fundamentais, melhorar habilidades na linguagem escolhida e explorar novos desafios de forma prática.
+Este repositorio foi criado para concentrar exercícios resolvidos, estudos práticos e experimentações com diferentes tecnologias e linguagens de programação.
 
-## Estrutura do Repositório
+🎯 Objetivo:
+Aprimorar habilidades de codificação, reforçar conceitos fundamentais de programação e explorar novas ferramentas por meio de desafios e estudos práticos.
 
-Os scripts estão organizados em pastas, separadas por linguagem ou tema:
+📁 Estrutura do Repositório
+Os conteúdos estão organizados por tema ou tecnologia, facilitando a navegação:
 
-🗂️ Code_Python: Scripts desenvolvidos em Python, abordando exercícios variados e conceitos fundamentais.
+* 🐍 [Code_Python/](https://github.com/anamariapego/coding-pratice/tree/main/Python)
+Exercícios resolvidos em Python, incluindo lógica de programação, estruturas de dados, algoritmos e desafios variados.
 
-🗂️ Docker: Scripts do curso **Docker**.
+* 🐳 [Docker/](https://github.com/anamariapego/coding-pratice/tree/main/Docker)
+Scripts e comandos estudados durante o curso de Docker, incluindo exemplos práticos de criação de containers, imagens e uso do Docker Compose.
+
+* 📊 [Streamlit/](https://github.com/anamariapego/coding-pratice/tree/main/Streamlit)
+Aplicações e testes desenvolvidos com a biblioteca Streamlit, voltados para criação de dashboards interativos e visualizações de dados.
