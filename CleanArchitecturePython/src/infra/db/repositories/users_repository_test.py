@@ -1,4 +1,4 @@
-from src.infra.db.repositories.users_repositories import UsersRepositories
+from src.infra.db.repositories.users_repository import UsersRepositories
 from src.infra.db.settings.connection import DBConnectionHandler
 from sqlalchemy import text
 import pytest

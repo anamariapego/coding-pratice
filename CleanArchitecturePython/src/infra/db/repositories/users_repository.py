@@ -1,7 +1,10 @@
 from src.infra.db.settings.connection import DBConnectionHandler
-from src.infra.db.entities.users import Users
+from src.infra.db.entities.users import Users as UsersEntity
+from src.data.interfaces.users_repository import UsersRepositoryInterface
+from typing import List
+from src.domain.models.users import Users
 
-class UsersRepositories:
+class UsersRepository(UsersRepositoryInterface):
 
     @classmethod
     def insert_user(cls, first_name: str, last_name: str, age: int) -> None:
@@ -10,7 +13,7 @@ class UsersRepositories:
         """
         with DBConnectionHandler() as db_handler:
             try: 
-                new_register = Users(first_name=first_name, last_name=last_name, age=age)
+                new_register = UsersEntity(first_name=first_name, last_name=last_name, age=age)
                 db_handler.session.add(new_register)
                 db_handler.session.commit()
 
@@ -21,13 +24,13 @@ class UsersRepositories:
                 db_handler.session.close()
 
     @classmethod
-    def get_all_users(cls):
+    def get_all_users(cls) -> None:
         """
         Método para obter todos os usuários do banco de dados.
         """
         with DBConnectionHandler() as db_handler:
             try:
-                users = db_handler.session.query(Users).all()
+                users = db_handler.session.query(UsersEntity).all()
                 return users
             except Exception as e:
                 print(f"An error occurred while fetching users: {e}")
@@ -36,13 +39,13 @@ class UsersRepositories:
                 db_handler.session.close()
 
     @classmethod
-    def get_user_by_first_name(cls, first_name: str):
+    def get_user_by_first_name(cls, first_name: str) -> List[Users]:
         """
         Método para obter um usuário pelo ID.
         """
         with DBConnectionHandler() as db_handler:
             try:
-                user = db_handler.session.query(Users).filter(Users.first_name == first_name).first()
+                user = db_handler.session.query(UsersEntity).filter(UsersEntity.first_name == first_name).first()
                 return user
             except Exception as e:
                 print(f"An error occurred while fetching user by ID: {e}")
@@ -57,7 +60,7 @@ class UsersRepositories:
         """
         with DBConnectionHandler() as db_handler:
             try:
-                user = db_handler.session.query(Users).filter(Users.id == user_id).first()
+                user = db_handler.session.query(UsersEntity).filter(UsersEntity.id == user_id).first()
                 if user:
                     user.first_name = first_name
                     user.last_name = last_name
@@ -78,7 +81,7 @@ class UsersRepositories:
         """
         with DBConnectionHandler() as db_handler:
             try:
-                user = db_handler.session.query(Users).filter(Users.id == id).first()
+                user = db_handler.session.query(UsersEntity).filter(UsersEntity.id == id).first()
                 if user:
                     db_handler.session.delete(user)
                     db_handler.session.commit()
