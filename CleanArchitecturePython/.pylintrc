@@ -11,6 +11,11 @@ disable=
       R0801, # Duplicate-code
       C0115, # missing-class-docstring
       R0903, # too-few-public-methods
+      C0304, # missing-final-newline
+      W0012, #unknown-option-value
+      E501, # line-too-long
+      E0611, # no-name-in-module
+      E0401 # import-error
       
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
