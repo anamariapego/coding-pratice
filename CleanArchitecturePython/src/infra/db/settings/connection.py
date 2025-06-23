@@ -14,7 +14,8 @@ class DBConnectionHandler:
         """
         Método para criar a engine de conexão com o banco de dados.
         """
-        engine = create_engine(self.__connection_string, echo=True, future=True)  # echo=True para logar as queries SQL e future=True para usar a API futura do SQLAlchemy
+        engine = create_engine(self.__connection_string, echo=True, future=True, # echo=True para logar as queries SQL e future=True para usar a API futura do SQLAlchemy
+                               pool_pre_ping=True)  # importante para evitar conexões mortas
         return engine
     
     def get_engine(self) -> None:
@@ -22,6 +23,9 @@ class DBConnectionHandler:
         Método para obter a engine de conexão com o banco de dados.
         """
         return self.__engine
+    
+    def dispose_engine(self):
+        self.__engine.dispose()
     
     def __enter__(self) -> "DBConnectionHandler":
         """
