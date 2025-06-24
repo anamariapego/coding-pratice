@@ -4,6 +4,7 @@ from src.domain.use_cases.user_finder import UserFinder as UserFinderInterface
 from typing import Dict, List
 from src.data.interfaces.users_repository import UsersRepositoryInterface
 from src.domain.models.users import Users
+from src.errors.types import HttpNotFoundError, HttpBadRequestError
 
 # Validações que acontecem antes da lógica, antes de realmente buscar o usuário
 class UserFinder(UserFinderInterface):
@@ -38,12 +39,12 @@ class UserFinder(UserFinderInterface):
     @classmethod
     def __validate_name(cls, first_name: str) -> None:
         if not first_name.isalpha():
-            raise Exception("Nome inválido para a busca")
+            raise HttpBadRequestError("Nome inválido para a busca")
         
     def __seacher_user(self, first_name: str) -> None:
         user = self.__users_repo.get_user_by_first_name(first_name)
         if user == []:
-            raise Exception("Usuário não encontrado")
+            raise HttpNotFoundError("Usuário não encontrado")
         return user
     
     @classmethod
