@@ -19,5 +19,5 @@ Scripts e comandos estudados durante o curso de Docker, incluindo exemplos prát
 * 📊 [Streamlit/](https://github.com/anamariapego/coding-pratice/tree/main/Streamlit)
 Aplicações e testes desenvolvidos com a biblioteca Streamlit, voltados para criação de dashboards interativos e visualizações de dados.
 
-* 📊 [CleanArchitecturePython/](https://github.com/anamariapego/coding-pratice/tree/main/CleanArchitecturePython)
+* 🕸️ [CleanArchitecturePython/](https://github.com/anamariapego/coding-pratice/tree/main/CleanArchitecturePython)
 Exemplo de aplicação desenvolvida em Python, seguindo os princípios da Clean Architecture para promover uma estrutura de código limpa, desacoplada e de fácil manutenção.
