@@ -4,11 +4,15 @@ from src.presentation.http_types.http_response import HttpResponse
 
 class HttpRequestMock():
     def __init__(self) -> None:
-        self.query_params = { "first_name": "meuTeste" }
+        self.query_params = { "email": "usuario@gmail.com" }
 
 def test_handle():
+    """
+    Testa o método handle do UserFinderController com sucesso.
+    Usa um caso de uso espião (UserFinderSpy) e um HttpRequest simulado.
+    """
     http_request_mock = HttpRequestMock()
-    use_case = UserFinderSpy()
+    use_case = UserFinderSpy() # Simula a lógica do caso de uso
     user_finder_controller = UserFinderController(use_case)
 
     response = user_finder_controller.handle(http_request_mock)

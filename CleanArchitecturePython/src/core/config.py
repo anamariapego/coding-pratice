@@ -1,7 +1,13 @@
+"""
+Arquivo de configurações da aplicação.
+"""
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    # Database configuration
+    """
+    Classe que representa as configurações do projeto. As variáveis são carregadas automaticamente do arquivo .env
+    """
+    # Configurações do banco de dados
     db_name: str
     db_port: int
     db_host: str
@@ -10,5 +16,5 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env")
 
-# Cria a instância de configurações
+# Cria a instância da classe
 settings = Settings()
