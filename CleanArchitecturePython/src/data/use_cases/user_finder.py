@@ -1,61 +1,66 @@
-#pylint: disable=broad-exception-raised
-
-from src.domain.use_cases.user_finder import UserFinder as UserFinderInterface
 from typing import Dict, List
-from src.data.interfaces.users_repository import UsersRepositoryInterface
 from src.domain.models.users import Users
 from src.errors.types import HttpNotFoundError, HttpBadRequestError
+from src.domain.use_cases.user_finder import UserFinderInterface
+from src.data.interfaces.users_repository import UsersRepositoryInterface
 
-# Validações que acontecem antes da lógica, antes de realmente buscar o usuário
 class UserFinder(UserFinderInterface):
+    """
+    Caso de uso que busca um usuário no repositório, aplicando validações e formatação de resposta.
+    """
     def __init__(self, users_repo: UsersRepositoryInterface) -> None:
         self.__users_repo = users_repo
 
-    def find_user(self, first_name: str) -> Dict:
+    def find_user(self, email: str) -> Dict:
+        """
+        Executa o fluxo completo de busca de um usuário:
+        - Valida o email
+        - Busca o usuário
+        - Formata a resposta
 
-        # # lógica
-        # if not first_name.isalpha():
-        #     raise Exception("Nome inválido para a busca")
-        
-        # user = self.__users_repo.get_user_by_first_name(first_name)
-        # if user == []:
-        #     raise Exception("Usuário não encontrado")
-        
-        # response = {
-        #     "type": "Users",
-        #     "count": len(user),
-        #     "attributes": user
-        # }
-        # return response
+        Args:
+            email (str): email do usuário a ser buscado.
 
+        Returns:
+            Dict: um dicionário com a resposta formatada.
+        """
         # Código refatorado
-        self.__validate_name(first_name)
-        users = self.__seacher_user(first_name)
+        self.__validate_email(email)
+        users = self.__seacher_user(email)
         response = self.__format_reponse(users)
         return response
 
-# Mesmo quando houver refatoramento no código os testes não devem quebrar
+# obs: mesmo quando houver refatoramento no código os testes não devem quebrar
 
     @classmethod
-    def __validate_name(cls, first_name: str) -> None:
-        if not first_name.isalpha():
-            raise HttpBadRequestError("Nome inválido para a busca")
+    def __validate_email(cls, email: str) -> None:
+        """
+        Valida o formato do email.
+        """
+        if "@" not in email or "." not in email:
+            raise HttpBadRequestError("Email inválido para a busca")
         
-    def __seacher_user(self, first_name: str) -> None:
-        user = self.__users_repo.get_user_by_first_name(first_name)
+    def __seacher_user(self, email: str) -> List[Users]:
+        """
+        Busca o usuário no repositório.
+        """
+        user = self.__users_repo.get_user_by_email(email)
         if user == []:
             raise HttpNotFoundError("Usuário não encontrado")
         return user
     
     @classmethod
     def __format_reponse(cls, users: List[Users]) -> Dict:
+        """
+        Formata os dados dos usuários em um dicionário.
+        """
         attributes = []
         for user in users:
             attributes.append({
-                "last_name": user.last_name,
+                "name": user.name,
+                "email": user.email,
                 "age": user.age
             })
-
 
         response = {
             "type": "Users",
@@ -63,7 +68,3 @@ class UserFinder(UserFinderInterface):
             "attributes": attributes
         }
         return response
-
-# first_name contendo apenas letras
-# retornar erro caso não encontre usuário
-# formatar a resposta

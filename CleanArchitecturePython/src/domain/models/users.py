@@ -1,9 +1,22 @@
-#pylint: disable=redefined-builtin
+"""
+Classe que representa a entidade de usuário no domínio da aplicação.
 
-# Classe que armazena os dados, reprsesentação do que tem na tabela users
+Utilizada para abstrair a estrutura de dados do usuário independentemente da tecnologia usada (banco, API etc.).
+"""
+
 class Users:
-    def __init__(self, id: int, first_name: str, last_name: str, age: int) -> None:
-        self.id = id
-        self.first_name = first_name
-        self.last_name = last_name
+    def __init__(self, name: str, email: str, age: int) -> None:
+        """
+        Inicializa uma nova instância de usuário.
+
+        Ags:
+            name (str): Nome do usuário
+            email (str): Email do usuário
+            age (int): Idade do usuário
+        """
+        self.name = name
+        self.email = email
         self.age = age
+
+    def __repr__(self) -> str:
+        return f"Users(name='{self.name}', email='{self.email}', age={self.age})"

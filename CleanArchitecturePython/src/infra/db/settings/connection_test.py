@@ -5,7 +5,7 @@ from sqlalchemy import text
 # @pytest.mark.skip(reason="Sensive test") # Para não executar este teste automaticamente
 def test_db_connection_handler():
     """
-    Testa a criação da conexão com o banco de dados.
+    Testa a conexão com o banco de dados.
     """
     db_connection_handler = DBConnectionHandler()
     engine = db_connection_handler.get_engine()
@@ -18,7 +18,7 @@ def test_list_all_databases():
     """
     db_connection_handler = DBConnectionHandler()
     
-    # 💡 Força o descarte de conexões antigas
+    # Força o descarte de conexões antigas
     db_connection_handler.dispose_engine()
     
     engine = db_connection_handler.get_engine()

@@ -1,5 +1,5 @@
 {
-    // Ativa o linting com Pylint
+    // Ativa o linting com Pylint e oculta arquivos .pyc, __pycache__ e .pytest_cache no VS Code
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "files.exclude": {

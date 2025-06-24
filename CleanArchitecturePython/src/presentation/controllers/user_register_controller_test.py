@@ -4,11 +4,15 @@ from src.presentation.http_types.http_response import HttpResponse
 
 class HttpRequestMock():
     def __init__(self) -> None:
-        self.body = { "first_name": "meuTeste", "last_name": "meuTeste2", "age": 38 }
+        self.body = { "name": "Usuario", "email": "usuario@gmail.com", "age": 38 }
 
 def test_handle():
+    """
+    Testa o método handle do UserRegisterController com sucesso.
+    Usa um caso de uso espião (UserRegisterSpy) e um HttpRequest simulado.
+    """
     http_request_mock = HttpRequestMock()
-    use_case = UserRegisterSpy()
+    use_case = UserRegisterSpy() # Simula a lógica do caso de uso
     user_finder_controller = UserRegisterController(use_case)
 
     response = user_finder_controller.handle(http_request_mock)

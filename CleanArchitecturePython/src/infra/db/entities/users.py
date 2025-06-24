@@ -4,15 +4,19 @@ from sqlalchemy.sql import text
 
 class Users(Base):
     """
-    Classe que representa a tabela de usuários no banco de dados.
+    Modelo que representa a tabela 'users' no banco de dados.
     """
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    first_name = Column(String(50), nullable=False)
-    last_name = Column(String(50), nullable=False)
+    name = Column(String(200), nullable=False)
+    email = Column(String(200), nullable=False)
     age = Column(Integer, nullable=False)
     created_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
-    # Para retornar uma representação legível do objeto
+    updated_at = Column(DateTime, nullable=False, server_default=text('CURRENT_TIMESTAMP'))
+    
     def __repr__(self) -> str:
-        return f"<User(id={self.id}, first_name='{self.first_name}', last_name='{self.last_name}', age={self.age})>"
+        """ 
+        Representação legível do objeto
+        """
+        return f"<User(id={self.id}, name='{self.name}', email='{self.email}', age={self.age})>"

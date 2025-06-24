@@ -1,10 +1,15 @@
 from src.presentation.interfaces.controller_interface import ControllerInterface
-from src.domain.use_cases.user_register import UserRegister as UserRegisterInterface
+from src.domain.use_cases.user_register import UserRegisterInterface
 from src.presentation.http_types.http_request import HttpRequest
 from src.presentation.http_types.http_response import HttpResponse
 
-
 class UserRegisterController(ControllerInterface):
+    """
+    Controller responsável por registrar um novo usuário.
+
+    Extrai os dados do corpo da requisição e executa o caso de uso
+    para criação de usuário, retornando a resposta formatada.
+    """
     def __init__(self, use_case: UserRegisterInterface) -> None:
         self.__use_case = use_case
 
