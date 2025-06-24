@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from src.core.config import settings
 
+# Quando usa container o valor de host vai mudar, usando o endereço do IP do banco de dados
 class DBConnectionHandler:
 
     def __init__(self) -> None:
